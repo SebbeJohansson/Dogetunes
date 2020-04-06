@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<title>Switchery Demos</title>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link href="standalone/switchery.css" rel="stylesheet" />
+
+<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="http://www.jqueryscript.net/form/Creating-iOS-7-Style-Toggle-Switches-With-Switchery-js.html">Download This Plugin</a></li>
+<li><a href="http://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+<header class="header" style="margin-top:150px;">
+<h1>Switchery Demos</h1>
+<h2>iOS 7 style switches for your checkboxes</h2>
+</header>
+<div class="container">
+<section class="section">
+<h3>Examples</h3>
+<div class="example">
+<h4>Checked</h4>
+<p>
+<input type="checkbox" class="js-switch" checked />
+</p>
+</div>
+<div class="example">
+<h4>Multiple switches</h4>
+<p>
+<input type="checkbox" class="js-switch" />
+<input type="checkbox" class="js-switch" checked />
+<input type="checkbox" class="js-switch" />
+</p>
+</div>
+<div class="example">
+<h4>Disabled</h4>
+<p>
+<input type="checkbox" class="js-switch-disabled" checked />
+</p>
+</div>
+<div class="example">
+<h4>Colored</h4>
+<p>
+<input type="checkbox" class="js-switch-blue" checked />
+<input type="checkbox" class="js-switch-pink" checked />
+<input type="checkbox" class="js-switch-teal" checked />
+<input type="checkbox" class="js-switch-red" checked />
+</p>
+<p>Or the secondary color, which will change the switch shadow and default border:</p>
+<p>
+<input type="checkbox" class="js-switch-secondary" checked />
+</p>
+</div>
+<div class="example">
+<h4>Legacy browsers</h4>
+<p>
+<input type="checkbox" class="js-switch" checked />
+</p>
+</div>
+</section>
+</div>
+<script type="text/javascript" src="standalone/switchery.js"></script> 
+<script type="text/javascript">
+
+      // Default
+      var Switchery = require('switchery');
+
+      // if-else statement used only for fixing <IE9 issues
+      if (Array.prototype.forEach) {
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+        elems.forEach(function(html) {
+          var switchery = new Switchery(html);
+        });
+      } else {
+        var elems = document.querySelectorAll('.js-switch');
+
+        for (var i = 0; i < elems.length; i++) {
+          var switchery = new Switchery(elems[i]);
+        }
+      }
+
+      // Disabled switch
+      var disabled = document.querySelector('.js-switch-disabled');
+      var switchery = new Switchery(disabled, { disabled: true });
+
+      // Colored switches
+      var blue = document.querySelector('.js-switch-blue');
+      var switchery = new Switchery(blue, { color: '#41b7f1' });
+
+      var pink = document.querySelector('.js-switch-pink');
+      var switchery = new Switchery(pink, { color: '#ff7791' });
+
+      var teal = document.querySelector('.js-switch-teal');
+      var switchery = new Switchery(teal, { color: '#3cc8ad' });
+
+      var red = document.querySelector('.js-switch-red');
+      var switchery = new Switchery(red, { color: '#db5554' });
+
+      var secondary = document.querySelector('.js-switch-secondary');
+      var switchery = new Switchery(secondary, { color: '#fec200', secondaryColor: '#ff8787' });
+    </script>
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

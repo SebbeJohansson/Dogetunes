@@ -1,0 +1,52 @@
+RewriteEngine On
+DirectoryIndex index.php
+
+RewriteRule ^p/([A-Öa-ö0-9-]+)/?$ /?p=$1 [L]
+
+RewriteRule ^news/([A-Öa-ö0-9-]+)/?$ /?p=news&name=$1 [L]
+
+RewriteRule ^profile/([A-Öa-ö0-9-]+)/?$ /?p=profile&name=$1 [L]
+
+RewriteRule ^categories/([A-Öa-ö0-9-]+)/?$ /?p=cat&name=$1 [L]
+
+RewriteRule ^tag/([A-Öa-ö0-9-]+)/?$ /?p=tag&name=$1 [L]
+
+RewriteRule ^artists/([A-Öa-ö0-9-]+)/([A-Öa-ö0-9-]+)/?$ /?p=artists&cat=$1&name=$2 [L]
+
+# AddOutputFilterByType DEFLATE text/plain
+
+# AddOutputFilterByType DEFLATE text/html
+
+# AddOutputFilterByType DEFLATE text/php
+
+# AddOutputFilterByType DEFLATE text/css
+
+# AddOutputFilterByType DEFLATE application/javascript
+
+SetEnvIfNoCase User-Agent "^libwww-perl*" block_bad_bots
+# Loopia: Values from the City Sites environment
+php_value memory_limit 256M
+php_value max_execution_time 240
+php_value max_input_vars 3000
+php_value serialize_precision 101
+DirectoryIndex index.htm index.php index.html index.wml default.html default.htm default.php
+php_value upload_max_filesize 220M
+php_value post_max_size 220M
+# BEGIN LOOPIA APACHE 2.4
+<IfModule mod_version.c>
+	<IfVersion < 2.4>
+		Deny from env=block_bad_bots
+	</IfVersion>
+	<IfVersion >= 2.4>
+		# order deny,allow
+		<RequireAny>
+			<RequireAll>
+				Require all granted
+				<RequireNone>
+					Require env block_bad_bots
+				</RequireNone>
+			</RequireAll>
+		</RequireAny>
+	</IfVersion>
+</IfModule>
+# END LOOPIA APACHE 2.4
